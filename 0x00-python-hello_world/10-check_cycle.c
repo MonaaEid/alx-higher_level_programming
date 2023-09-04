@@ -1,5 +1,5 @@
 #include "lists.h"
-#include <stdlib.h>
+iinclude <stdlib.h>
 #include <stdio.h>
 
 /**
@@ -9,7 +9,7 @@
  */
 int check_cycle(listint_t *list)
 {
-	int_t *slow, *fast;
+	listint_t *slow, *fast;
 
 	if (list == NULL)
 		return (0);
