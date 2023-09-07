@@ -2,6 +2,8 @@
 from calculator_1 import add, sub, mul, div
 
 import sys
+
+
 def main():
     num_args = len(sys.argv)
     if num_args != 4:
@@ -24,5 +26,7 @@ def main():
     result = func(a, b)
 
     print("{} {} {} = {}".format(a, operator, b, result))
+
+
 if __name__ == "__main__":
     main()
