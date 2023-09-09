@@ -13,8 +13,10 @@ int is_palindrome(listint_t **head)
 
 	if (head == NULL || *head == NULL || (*head)->next == NULL)
 		return (1);
+
 	current = *head;
 	reverse = NULL;
+
 	while (current != NULL)
 	{
 		temp = malloc(sizeof(listint_t));
