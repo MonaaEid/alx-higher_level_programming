@@ -105,4 +105,3 @@ void print_python_float(PyObject *p)
 	printf("  value: %s\n", no_f);
 	setbuf(stdout, NULL);
 }
-
