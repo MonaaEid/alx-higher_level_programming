@@ -1,9 +1,10 @@
 #include <stdio.h>
-#include <python.h>
+#include <Python.h>
 
 /**
  * print_python_list - prints some basic info about Python lists
- * @p: pointer to PyObject list
+ * @p: pointer to 
+ * yObject list
  */
 void print_python_list(PyObject *p)
 {
@@ -20,7 +21,6 @@ void print_python_list(PyObject *p)
 		setbuf(stdout, NULL);
 		return;
 	}
-
 	size = ((PyVarObject *)(p))->ob_size;
 	list = (PyListObject *)p;
 
