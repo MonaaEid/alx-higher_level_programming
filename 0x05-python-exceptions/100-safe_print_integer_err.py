@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 def safe_print_integer_err(value):
+    import sys
     try:
-        print("{:d}".format(int(value)))
+        print("{:d}".format(value))
         print()
         return True
     except Exception as e:
