@@ -7,8 +7,8 @@
  */
 void print_python_bytes(PyObject *p)
 {
+	long int j, size, limit;
 	char *string;
-	long int size, i, limit;
 
 	setbuf(stdout, NULL);
 
@@ -33,11 +33,11 @@ void print_python_bytes(PyObject *p)
 
 	printf("  first %ld bytes:", limit);
 
-	for (i = 0; i < limit; i++)
-		if (string[i] >= 0)
-			printf(" %02x", string[i]);
+	for (j = 0; j < limit; j++)
+		if (string[j] >= 0)
+			printf(" %02x", string[j]);
 		else
-			printf(" %02x", 256 + string[i]);
+			printf(" %02x", 256 + string[j]);
 
 	printf("\n");
 	setbuf(stdout, NULL);
