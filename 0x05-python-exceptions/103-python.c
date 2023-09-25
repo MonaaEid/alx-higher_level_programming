@@ -6,9 +6,9 @@
  * @p: pointer to PyObject list
  */
 void print_python_list(PyObject *p)
-{
-    Py_ssize_t i, size;
-    PyObject *obj;
+{ 
+	Py_ssize_t i, size;
+	PyObject *obj;
 
     if (!PyList_Check(p))
     {
@@ -16,16 +16,15 @@ void print_python_list(PyObject *p)
         return;
     }
 
-    size = PyList_Size(p);
+    size = ((PyVarObject *)p)->ob_size;
     printf("[*] Python list info\n  Size of the Python List = %ld\n  Allocated = %ld\n", size, ((PyListObject *)p)->allocated);
 
     for (i = 0; i < size; i++)
     {
-        obj = PyList_GetItem(p, i);
-        printf("  Element %ld: %s\n", i, Py_TYPE(obj)->tp_name);
+        obj = ((PyListObject *)p)->ob_item[i];
+        printf("  Element %ld: %s\n", i, ((PyObject *)(obj))->ob_type->tp_name);
     }
 }
-
 /**
  * print_python_bytes - prints some basic info about Python bytes
  * @p: pointer to PyObject bytes
