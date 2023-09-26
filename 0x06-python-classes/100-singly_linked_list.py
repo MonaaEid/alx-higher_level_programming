@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """A class Node that defines a node of a singly linked list"""
 
 
