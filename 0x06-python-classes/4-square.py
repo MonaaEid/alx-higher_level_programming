@@ -21,6 +21,7 @@ class Square:
             ValueError: If size is less than 0.
 
         """
+        self.size = size
     @property
     def size(self):
         """Retrieves the size of the square.
