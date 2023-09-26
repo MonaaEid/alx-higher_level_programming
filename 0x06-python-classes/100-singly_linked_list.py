@@ -19,9 +19,11 @@ class Node:
         Initializes a new instance of the Node class.
         Parameters:
             data (int): an integer representing the data stored in the node
-            next_node (Node): a reference to the next node in the linked list (default None)
+            next_node (Node): a reference to the next node
+            in the linked list (default None)
         Raises:
-            TypeError: if data is not an integer or if next_node is not None or a Node object
+            TypeError: if data is not an integer or if next_node is not None
+            or a Node object
 
     """
 
@@ -78,7 +80,8 @@ class Node:
         Sets the value of the private instance attribute `next_node`.
 
         Parameters:
-            value (Node): a reference to the next node in the linked list (default None)
+            value (Node): a reference to the next node
+            in the linked list (default None)
         Raises:
             TypeError: if value is not None or a Node object
 
@@ -101,20 +104,22 @@ class SinglyLinkedList:
     -------
     __init__(self):
         Initializes a new instance of the SinglyLinkedList class.
-
     sorted_insert(self, value):
-        Inserts a new Node into the correct sorted position in the list (increasing order).
+        Inserts a new Node into the correct sorted
+        position in the list (increasing order).
 
          Parameters:
-            value (int): an integer representing the data stored in the new node.
+            value (int): an integer representing
+            the data stored in the new node.
          Raises:
             TypeError: if value is not an integer.
 
      __str__(self):
-         Returns a string representation of all nodes in this singly linked list.
-
+         Returns a string representation of all
+         nodes in this singly linked list
          Returns:
-             str: A string representation of all nodes in this singly linked list.
+             str: A string representation of all
+             nodes in this singly linked list
     """
     def __init__(self):
         self.head = None
@@ -141,4 +146,3 @@ class SinglyLinkedList:
             node = node.next_node
         new_node.next_node = node.next_node
         node.next_node = new_node
-
