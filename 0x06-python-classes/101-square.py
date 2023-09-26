@@ -10,6 +10,7 @@ class Square:
         __position (tuple): The position of the square.
 
     """
+
     def __init__(self, size=0, position=(0, 0)):
         """Initializes a new instance of the Square class.
 
@@ -22,8 +23,8 @@ class Square:
             ValueError: If size is less than 0 or position contains negative integers.
 
         """
-        self.size = size
-        self.position = position
+        self.__size = size
+        self.__position = position
 
     @property
     def size(self):
@@ -33,7 +34,7 @@ class Square:
             int: The size of the square.
 
         """
-        return self._size
+        return self.__size
 
     @size.setter
     def size(self, value):
@@ -49,9 +50,10 @@ class Square:
         """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        if value < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
-        self._size = value
+        else:
+            self.__size = value
 
     @property
     def position(self):
@@ -61,7 +63,7 @@ class Square:
             tuple: The position of the square.
 
         """
-        return self._position
+        return self.__position
 
     @position.setter
     def position(self, value):
@@ -76,9 +78,11 @@ class Square:
 
         """
         if not isinstance(value, tuple) or len(value) != 2 or \
-                not all(isinstance(i, int) and i >= 0 for i in value):
+                not all(isinstance(i, int) for i in value) or \
+                not all(i >= 0 for i in value):
             raise TypeError("position must be a tuple of 2 positive integers")
-        self._position = value
+        else:
+            self.__position = value
 
     def area(self):
         """Calculates the area of the square.
@@ -87,30 +91,21 @@ class Square:
             int: The area of the square.
 
         """
-        return self.size ** 2
+        return self.__size ** 2
 
     def my_print(self):
-        """Prints the square with the character # and
-        spaces based on its position
+        """Prints the square with the character # and spaces based on its position.
+
         If the size is equal to 0, it prints an empty line.
+
         """
         if self.__size == 0:
-            print("")
+            print()
             return
 
-        [print("") for i in range(0, self.__position[1])]
-        for i in range(0, self.__size):
-            [print(" ", end="") for j in range(0, self.__position[0])]
-            [print("#", end="") for k in range(0, self.__size)]
-            print("")
+        for _ in range(self.__position[1]):
+            print()
 
-    def __str__(self):
-        """Define the print() representation of a Square."""
-        if self.__size != 0:
-            [print("") for i in range(0, self.__position[1])]
-        for i in range(0, self.__size):
-            [print(" ", end="") for j in range(0, self.__position[0])]
-            [print("#", end="") for k in range(0, self.__size)]
-            if i != self.__size - 1:
-                print("")
-        return ("")
+        for _ in range(self.__size):
+            print(" " * self.__position[0], end="")
+            print("#" * self.__size)
