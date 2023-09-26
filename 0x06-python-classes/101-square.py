@@ -91,21 +91,27 @@ class Square:
             int: The area of the square.
 
         """
-        return self.__size ** 2
+        return (self.__size * self.__size)
 
     def my_print(self):
-        """Prints the square with the character # and spaces based on its position.
-
-        If the size is equal to 0, it prints an empty line.
-
-        """
+        """Print the square with the # character."""
         if self.__size == 0:
-            print()
+            print("")
             return
 
-        for _ in range(self.__position[1]):
-            print()
+        [print("") for i in range(0, self.__position[1])]
+        for i in range(0, self.__size):
+            [print(" ", end="") for j in range(0, self.__position[0])]
+            [print("#", end="") for k in range(0, self.__size)]
+            print("")
 
-        for _ in range(self.__size):
-            print(" " * self.__position[0], end="")
-            print("#" * self.__size)
+    def __str__(self):
+        """Define the print() representation of a Square."""
+        if self.__size != 0:
+            [print("") for i in range(0, self.__position[1])]
+        for i in range(0, self.__size):
+            [print(" ", end="") for j in range(0, self.__position[0])]
+            [print("#", end="") for k in range(0, self.__size)]
+            if i != self.__size - 1:
+                print("")
+        return ("")
