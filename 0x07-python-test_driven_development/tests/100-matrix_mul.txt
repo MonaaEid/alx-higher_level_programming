@@ -1,0 +1,26 @@
+import unittest
+from my_module import matrix_mul
+
+class TestMatrixMul(unittest.TestCase):
+    def test_empty_matrices(self):
+        self.assertRaises(ValueError, matrix_mul, [], [])
+        self.assertRaises(ValueError, matrix_mul, [[]], [[]])
+
+    def test_invalid_matrices(self):
+        self.assertRaises(TypeError, matrix_mul, None, None)
+        self.assertRaises(TypeError, matrix_mul, [], None)
+        self.assertRaises(TypeError, matrix_mul, None, [])
+        self.assertRaises(TypeError, matrix_mul, [[1], [2]], [3])
+        self.assertRaises(TypeError, matrix_mul, [1], [[2], [3]])
+        self.assertRaises(TypeError, matrix_mul, [[1], [2]], [3])
+        self.assertRaises(ValueError, matrix_mul, [[1]], [[]])
+        self.assertRaises(TypeError, matrix_mul, [[1], [2]], [[3], 4])
+
+    def test_valid_matrices(self):
+        self.assertEqual(matrix_mul([[1]], [[2]]), [[2]])
+        self.assertEqual(matrix_mul([[1], [2]], [[3], [4]]), [[11]])
+        self.assertEqual(matrix_mul([[1, 2], [3, 4]], [[5], [6]]), [[17], [39]])
+
+if __name__ == '__main__':
+    unittest.main()
+
