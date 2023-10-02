@@ -1,8 +1,17 @@
 #!/usr/bin/python3
+"""
+This is the "lazy matrix multiplication" module
+"""
 
 import numpy as np
 
 def lazy_matrix_mul(m_a, m_b):
+    """
+    multiplies 2 matrices by using the module NumPy
+    Args:
+        m_a: list of integers or floats
+        m_b: list of integers or floats
+    """
     if not isinstance(m_a, list) or not isinstance(m_b, list):
         raise TypeError("m_a and m_b must be a list")
     if not all(isinstance(row, list) for row in m_a) or not all(isinstance(row, list) for row in m_b):
