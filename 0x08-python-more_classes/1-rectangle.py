@@ -3,7 +3,15 @@
 class Rectangle that defines a rectangle by: (based on 0-rectangle.py)
 """
 class Rectangle:
+    """
+    class Rectangle
+    """
     def __init__(self, width=0, height=0):
+        """
+        Args:
+            width: integer
+            height: integer
+        """
         self.width = width
         self.height = height
     @property
