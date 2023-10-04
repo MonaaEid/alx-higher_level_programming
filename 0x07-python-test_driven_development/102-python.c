@@ -9,13 +9,25 @@
  */
 void print_python_string(PyObject *p)
 {
-	PyUnicodeObject *pyUnicode = (PyUnicodeObject *) p;
 
-	if (!PyUnicode_Check(pyUnicode))
+	PyObject *str, *repr;
+
+	(void)repr;
+	printf("[.] string object info\n");
+
+	if (strcmp(p->ob_type->tp_name, "str"))
 	{
-		fprintf(stderr, "TypeError: print_python_string() argument must be a string\n");
+		printf("  [ERROR] Invalid String Object\n");
 		return;
 	}
-	printf("  %.*s", (int) PyUnicode_GET_LENGTH(pyUnicode), PyUnicode_AsUTF8(pyUnicode));
-	printf("\n");
+
+	if (PyUnicode_IS_COMPACT_ASCII(p))
+		printf("  type: compact ascii\n");
+	else
+		printf("  type: compact unicode object\n");
+
+	repr = PyObject_Repr(p);
+	str = PyUnicode_AsEncodedString(p, "utf-8", "~E~");
+	printf("  length: %ld\n", PyUnicode_GET_SIZE(p));
+	printf("  value: %s\n", PyBytes_AsString(str));
 }
