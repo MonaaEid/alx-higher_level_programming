@@ -15,11 +15,11 @@ class MyInt(int):
             other: anything
         """
 
-        return int(self) is not int(other)
+        return int(str(self)) is not other
 
     def __ne__(self, other):
         """
         Args:
             other: anything
         """
-        return int(self) is int(other)
+        return int(str(self)) is other
