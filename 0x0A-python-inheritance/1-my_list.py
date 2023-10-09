@@ -14,4 +14,4 @@ class MyList(list):
         prints the list,ascending sort
         """
         sorted_list = sorted(self)
-        print(sorted_list)
+        print("{}".format(sorted_list))
