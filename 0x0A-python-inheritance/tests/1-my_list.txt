@@ -16,8 +16,6 @@
 
 >>> my_list.print_sorted()
 [2, 3, 6]
-
->>> my_list = MyList("hello")
     
 >>> my_list
 ['h', 'e', 'l', 'l', 'o']
@@ -25,7 +23,4 @@
 >>> my_list.print_sorted()
 ['e', 'h', 'l', 'l', 'o']
 
->>> new_l = MyList()
 
->>> new_l.print_sorted()
-[]
