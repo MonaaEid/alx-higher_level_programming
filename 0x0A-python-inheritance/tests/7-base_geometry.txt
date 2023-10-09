@@ -1,0 +1,12 @@
+>>> geometry = BaseGeometry()
+>>> geometry.integer_validator("width", 10)
+>>> geometry.integer_validator("height", -5)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 8, in integer_validator
+ValueError: height must be greater than 0
+>>> geometry.area()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 3, in area
+Exception: area() is not implemented
