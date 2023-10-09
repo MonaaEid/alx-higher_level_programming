@@ -12,7 +12,7 @@ class MyInt(int):
     def __eq__(self, other):
         """
         Args:
-            other:
+            other: anything
         """
 
         return int(self) is not int(other)
@@ -20,6 +20,6 @@ class MyInt(int):
     def __ne__(self, other):
         """
         Args:
-            other:
+            other: anything
         """
         return int(self) is int(other)
