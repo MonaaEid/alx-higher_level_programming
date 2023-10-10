@@ -3,7 +3,7 @@
 
 
 
-def print_statistics(total_size, status_codes):
+    def print_stats(size, status_codes):
     """Prints the statistics since the beginning."""
     print("File size: {}".format(size))
     for key in sorted(status_codes):
