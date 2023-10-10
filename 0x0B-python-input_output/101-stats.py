@@ -7,46 +7,31 @@ import sys
 
 def print_statistics(total_size, status_codes):
     """Prints the statistics since the beginning."""
-    print(f'Total file size: {total_size} bytes')
-    for code in sorted(status_codes.keys()):
-        if status_codes[code] > 0:
+    print("File size: {}".format(size))
+        for key in sorted(status_codes):
             print("{}: {}".format(key, status_codes[key]))
 
 def main():
-    size = 0
-    status_codes = {}
-    valid_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
+    total_size = 0
+    status_codes = {'200': 0, '301': 0, '400': 0, '401': 0, '403': 0, '404': 0, '405': 0, '500': 0}
     count = 0
-
     try:
         for line in sys.stdin:
-            if count == 10:
-                print_stats(size, status_codes)
-                count = 1
-            else:
-                count += 1
-
-            line = line.split()
-
+            count += 1
+            words = line.split()
             try:
-                size += int(line[-1])
-            except (IndexError, ValueError):
+                size = int(words[-1])
+                total_size += size
+                code = words[-2]
+                if code in status_codes:
+                    status_codes[code] += 1
+            except Exception as e:
                 pass
-
-            try:
-                if line[-2] in valid_codes:
-                    if status_codes.get(line[-2], -1) == -1:
-                        status_codes[line[-2]] = 1
-                    else:
-                        status_codes[line[-2]] += 1
-            except IndexError:
-                pass
-
-        print_stats(size, status_codes)
-
+            if count % 10 == 0:
+                print_statistics(total_size, status_codes)
     except KeyboardInterrupt:
-        print_stats(size, status_codes)
-        raise
+        print_statistics(total_size, status_codes)
+
 
 if __name__ == '__main__':
     main()
