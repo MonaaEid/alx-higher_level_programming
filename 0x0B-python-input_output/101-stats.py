@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Student Class"""
+""" print_stats"""
 
 
 
@@ -7,9 +7,10 @@ def print_stats(size, status_codes):
     """Prints the statistics since the beginning."""
     print("File size: {}".format(size))
     for key in sorted(status_codes):
-            print("{}: {}".format(key, status_codes[key]))
+        print("{}: {}".format(key, status_codes[key]))
 
-def main():
+
+if __name__ == "__main__":
     import sys
 
     size = 0
@@ -46,6 +47,3 @@ def main():
     except KeyboardInterrupt:
         print_stats(size, status_codes)
         raise
-
-if __name__ == '__main__':
-    main()
