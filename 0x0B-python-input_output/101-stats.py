@@ -2,7 +2,6 @@
 """ print_stats"""
 
 
-
 def print_stats(size, status_codes):
     """Prints the statistics since the beginning."""
     print("File size: {}".format(size))
