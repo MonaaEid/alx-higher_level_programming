@@ -12,7 +12,7 @@ class Base:
 
     def __init__(self, id=None):
         """Initializes the instance with an id."""
-        if id != None:
+        if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
@@ -25,7 +25,7 @@ class Base:
             return "[]"
         else:
             return json.dumps(list_dictionaries)
-        
+
     @classmethod
     def save_to_file(cls, list_objs):
         """Writes the JSON string representation of list_objs to a file."""
@@ -44,7 +44,7 @@ class Base:
             return []
         else:
             return json.loads(json_string)
-        
+
     @classmethod
     def create(cls, **dictionary):
         """Returns an instance with all attributes already set."""
@@ -57,7 +57,7 @@ class Base:
 
         dummy.update(**dictionary)
         return dummy
-    
+
     @classmethod
     def load_from_file(cls):
         """Returns a list of instances."""
@@ -68,7 +68,7 @@ class Base:
                 return [cls.create(**d) for d in dict_list]
         except FileNotFoundError:
             return []
-    
+
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """Serializes and saves to a CSV file."""
@@ -77,7 +77,8 @@ class Base:
             writer = csv.writer(f)
             if cls.__name__ == "Rectangle":
                 for obj in list_objs:
-                    writer.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
+                    writer.writerow([obj.id, obj.width,
+                                    obj.height, obj.x, obj.y])
             elif cls.__name__ == "Square":
                 for obj in list_objs:
                     writer.writerow([obj.id, obj.size, obj.x, obj.y])
@@ -91,36 +92,39 @@ class Base:
                 reader = csv.reader(f)
                 if cls.__name__ == "Rectangle":
                     keys = ["id", "width", "height", "x", "y"]
-                    objs = [cls(**dict(zip(keys, map(int, row)))) for row in reader]
+                    objs = [cls(**dict(zip(keys, map(int, row))))
+                            for row in reader]
                 elif cls.__name__ == "Square":
                     keys = ["id", "size", "x", "y"]
-                    objs = [cls(**dict(zip(keys, map(int, row)))) for row in reader]
+                    objs = [cls(**dict(zip(keys, map(int, row))))
+                            for row in reader]
                 return objs
         except FileNotFoundError:
             return []
-        
+
     @staticmethod
     def draw(list_rectangles, list_squares):
-        """Opens a window and draws all the Rectangles and Squares using the Turtle graphics module."""
+        """Opens a window and draws all the Rectangles and Squares
+        using the Turtle graphics module."""
         turtle.setup(width=600, height=600)
         turtle.bgcolor("white")
-        
+
         for rect in list_rectangles:
             turtle.penup()
             turtle.goto(rect.x, rect.y)
             turtle.pendown()
-            
+
             for i in range(2):
                 turtle.forward(rect.width)
                 turtle.left(90)
                 turtle.forward(rect.height)
                 turtle.left(90)
-                
+
         for square in list_squares:
             turtle.penup()
             turtle.goto(square.x, square.y)
             turtle.pendown()
-            
+
             for i in range(4):
                 turtle.forward(square.size)
                 turtle.left(90)
