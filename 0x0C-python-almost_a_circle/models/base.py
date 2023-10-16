@@ -57,7 +57,7 @@ class Base:
 
         dummy.update(**dictionary)
         return dummy
-
+    
     @classmethod
     def load_from_file(cls):
         """Returns a list of instances."""
@@ -68,7 +68,7 @@ class Base:
                 return [cls.create(**d) for d in dict_list]
         except FileNotFoundError:
             return []
-
+    
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """Serializes and saves to a CSV file."""
@@ -92,39 +92,37 @@ class Base:
                 reader = csv.reader(f)
                 if cls.__name__ == "Rectangle":
                     keys = ["id", "width", "height", "x", "y"]
-                    objs = [cls(**dict(zip(keys, map(int, row))))
-                            for row in reader]
+                    objs = [cls(**dict(zip(keys, map(int, row)))) for row in reader]
                 elif cls.__name__ == "Square":
                     keys = ["id", "size", "x", "y"]
-                    objs = [cls(**dict(zip(keys, map(int, row))))
-                            for row in reader]
+                    objs = [cls(**dict(zip(keys, map(int, row)))) for row in reader]
                 return objs
         except FileNotFoundError:
             return []
-
+        
     @staticmethod
     def draw(list_rectangles, list_squares):
         """Opens a window and draws all the Rectangles and Squares
         using the Turtle graphics module."""
         turtle.setup(width=600, height=600)
         turtle.bgcolor("white")
-
+        
         for rect in list_rectangles:
             turtle.penup()
             turtle.goto(rect.x, rect.y)
             turtle.pendown()
-
+            
             for i in range(2):
                 turtle.forward(rect.width)
                 turtle.left(90)
                 turtle.forward(rect.height)
                 turtle.left(90)
-
+                
         for square in list_squares:
             turtle.penup()
             turtle.goto(square.x, square.y)
             turtle.pendown()
-
+            
             for i in range(4):
                 turtle.forward(square.size)
                 turtle.left(90)
