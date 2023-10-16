@@ -12,7 +12,7 @@ class Base:
 
     def __init__(self, id=None):
         """Initializes the instance with an id."""
-        if id is not None:
+        if id != None:
             self.id = id
         else:
             Base.__nb_objects += 1
@@ -25,7 +25,7 @@ class Base:
             return "[]"
         else:
             return json.dumps(list_dictionaries)
-
+        
     @classmethod
     def save_to_file(cls, list_objs):
         """Writes the JSON string representation of list_objs to a file."""
@@ -44,7 +44,7 @@ class Base:
             return []
         else:
             return json.loads(json_string)
-
+        
     @classmethod
     def create(cls, **dictionary):
         """Returns an instance with all attributes already set."""
@@ -77,8 +77,7 @@ class Base:
             writer = csv.writer(f)
             if cls.__name__ == "Rectangle":
                 for obj in list_objs:
-                    writer.writerow([obj.id, obj.width,
-                                    obj.height, obj.x, obj.y])
+                    writer.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
             elif cls.__name__ == "Square":
                 for obj in list_objs:
                     writer.writerow([obj.id, obj.size, obj.x, obj.y])
@@ -102,8 +101,7 @@ class Base:
         
     @staticmethod
     def draw(list_rectangles, list_squares):
-        """Opens a window and draws all the Rectangles and Squares
-        using the Turtle graphics module."""
+        """Opens a window and draws all the Rectangles and Squares using the Turtle graphics module."""
         turtle.setup(width=600, height=600)
         turtle.bgcolor("white")
         
