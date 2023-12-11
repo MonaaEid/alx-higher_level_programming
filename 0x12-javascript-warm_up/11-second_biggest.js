@@ -12,5 +12,5 @@ if (ar.length <= 3) {
       prevNum = element;
     }
   }
-  console.log(maxNum || 0);
+  console.log(maxNum);
 }
