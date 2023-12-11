@@ -8,7 +8,7 @@ if (ar.length === 2) {
 } else {
   for (const key in ar) {
     const element = Math.floor(parseFloat(ar[key]));
-    if (element > prevNum) {
+    if (!isNaN(element) && element > prevNum) {
       maxNum = element;
       prevNum = element;
     }
