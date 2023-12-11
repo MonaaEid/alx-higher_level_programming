@@ -1,6 +1,7 @@
 #!/usr/bin/node
 const ar = process.argv;
-let maxNum; let prevNum = 0;
+let maxNum;
+let prevNum = 0;
 if (ar.length <= 3) {
   console.log(0);
 } else {
