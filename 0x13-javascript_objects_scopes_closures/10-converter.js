@@ -7,12 +7,3 @@ exports.converter = function (base) {
   // convertedNumber = toString(base);
   // return (convertedNumber);
 };
-// let myConverter = converter(10);
-
-// console.log(myConverter);
-// myConverter(555);
-// converter(454)(16);
-// console.log(myConverter(12));
-// console.log(myConverter(89));
-
-// myConverter = converter(16);
