@@ -1,6 +1,11 @@
 #!/usr/bin/python3
+""" Query"""
+
+
 import MySQLdb
 import sys
+
+
 # __import__('db_connection')
 if __name__ == "__main__":
     ar =  sys.argv

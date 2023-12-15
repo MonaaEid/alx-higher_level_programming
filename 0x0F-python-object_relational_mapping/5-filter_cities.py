@@ -1,6 +1,10 @@
 #!/usr/bin/python3
+""" Query"""
+
+
 import MySQLdb
 import sys
+
 
 if __name__ == "__main__":
     ar= sys.argv
@@ -22,7 +26,7 @@ if __name__ == "__main__":
         cities = cursor.fetchall()
         # result = ''.join(tup)
         for city in cities:
-            print("{()}".format(city))
+            print("{}".format(city))
             # print(f{{ch}}, city)
 
         db_connection.close()

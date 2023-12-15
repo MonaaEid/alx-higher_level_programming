@@ -1,6 +1,12 @@
 #!/usr/bin/python3
+
+
+""" Query"""
+
 import MySQLdb
 import sys
+
+
 if __name__ == "__main__":
     ar =  sys.argv
     username = ar[1]
