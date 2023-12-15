@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-import MySQLdb
-import sys
 
 
 """ Query"""
+
+
+import MySQLdb
+import sys
 
 
 if __name__ == "__main__":

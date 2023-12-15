@@ -27,5 +27,3 @@ if __name__ == "__main__":
         db_connection.close()
     except:
         print('connecting went wrong')
-
-
