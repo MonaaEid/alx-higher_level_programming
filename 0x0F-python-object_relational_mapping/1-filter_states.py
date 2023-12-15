@@ -19,7 +19,7 @@ if __name__ == "__main__":
         passwd=password,
         db=database, port=3306)
     cursor = db_connection.cursor()
-    cursor.execute("SELECT * FROM states WHERE name like 'N%'\
+    cursor.execute("SELECT * FROM states WHERE BINARY name like 'N%'\
                     ORDER BY id ASC ")
     states = cursor.fetchall()
     for state in states:
