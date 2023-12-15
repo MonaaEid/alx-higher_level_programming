@@ -20,11 +20,12 @@ if __name__ == "__main__":
             passwd=password,
             db=database, port=3306)
         cursor=db_connection.cursor()
-        cursor.execute("SELECT * FROM states WHERE name like %s ", (stateNameSearched,))
+        cursor.execute("SELECT * FROM states WHERE name LIKE BINARY'{}' \
+                        ORDER BY id ASC ".format(stateNameSearched))
         states = cursor.fetchall()
         for state in states:
             print(state)
-
+        # cursor.close()
         db_connection.close()
     except:
         print('connecting went wrong')
