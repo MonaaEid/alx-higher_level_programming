@@ -20,5 +20,9 @@ if __name__ == "__main__":
     session = Session()
     state_id = session.query(State.id). \
         filter(State.name.contains(state_name)).first()
-    print(state_id.id)
+    if (state_id):
+        print(state_id.id)
+    else:
+        print("Not found")
+
     session.close()
