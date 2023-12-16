@@ -24,11 +24,9 @@ if __name__ == "__main__":
                     WHERE s.name = %s \
                     ORDER BY cities.id ASC", (stateName,))
     cities = cursor.fetchall()
-    # result = ''.join(tup)
-    for city in cities:
-        print("{}".format(city), end='')
-
-        # print("{}".format(city))
-        # print(f{{ch}}, city)
-
+    print(", ".join(city[0] for city in cities))
     db_connection.close()
+
+    # for city in cities:
+    # print("{}".format(city), end='')
+    # print("{}".format(city))
