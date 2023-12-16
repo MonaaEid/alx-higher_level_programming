@@ -26,7 +26,9 @@ if __name__ == "__main__":
     cities = cursor.fetchall()
     # result = ''.join(tup)
     for city in cities:
-        print("{}".format(city))
+        print("{}".format(city), end='')
+
+        # print("{}".format(city))
         # print(f{{ch}}, city)
 
     db_connection.close()
