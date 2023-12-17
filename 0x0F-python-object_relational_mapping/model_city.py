@@ -16,4 +16,3 @@ class City(Base):
     name = Column(String(128), nullable=False)
     state_id = Column(Integer, ForeignKey('state.id'), nullable=False)
     Base.metadata.create_all(engine)
-    
