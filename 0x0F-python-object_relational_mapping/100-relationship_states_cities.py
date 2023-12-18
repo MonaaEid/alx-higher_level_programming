@@ -23,7 +23,7 @@ if __name__ == "__main__":
     session.add(new_state)
     session.commit()
 
-    new_city = City(name="San Francisco", state=new_state)
+    new_city = City(name="San Francisco", state_id=new_state)
     session.add(new_city)
     session.commit()
 
