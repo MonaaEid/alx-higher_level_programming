@@ -1,5 +1,3 @@
 #!/bin/bash
-response_body=$(curl -s "$1")
-
-body_size=${#response_body}
-echo " ${body_size}"
+# Bash script that takes in a URL, sends a request to that URL, and displays the size of the body of the response
+curl -s $1  | wc -c
