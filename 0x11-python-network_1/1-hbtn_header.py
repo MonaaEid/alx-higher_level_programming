@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""fetches X-Request-Id"""
+"""fetches X-Request-Id."""
 import urllib.request
 import sys
 
