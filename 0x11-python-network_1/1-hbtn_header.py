@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""fetches https://alx-intranet.hbtn.io/status"""
+"""fetches X-Request-Id"""
 import urllib.request
 import sys
 
-url = sys.argv[1]
 
+url = sys.argv[1]
 with urllib.request.urlopen(url) as response:
     headers = response.getheaders()
     for header in headers:
