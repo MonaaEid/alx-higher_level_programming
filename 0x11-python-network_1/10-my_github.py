@@ -16,4 +16,4 @@ if __name__ == "__main__":
         data = response.json()
         print(data["id"])
     else:
-        print("Something went wrong:", response.reason)
+        print('None')
