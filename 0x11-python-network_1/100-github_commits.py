@@ -14,6 +14,6 @@ response = requests.get(url)
 
 if response.status_code == 200:
     data = response.json()
-
-    # Print the repository information
-    print("{}: {}",data["author"], data["name"] )
+    for i in data[:10]:
+        # Print the repository information
+        print("{}: {}",data["author"], data["name"] )
