@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+"""fetches X-Request-Id in the response header"""
+import requests
+import sys
+from requests.exceptions import HTTPError
+
+if __name__ == "__main__":
+    letter = sys.argv[1]
+    url = "http://0.0.0.0:5000/search_user"
+    params = {"q": letter}
+    response = requests.post(url, data=params)
+    response = requests.get(url)
+    try:
+        json = response.json()
+        if not json:
+            print("No result")
+        else:
+            print("[{}] {}".format(json.get("id"), json.get("name")))
+    except ValueError:
+        print("Not a valid JSON")
