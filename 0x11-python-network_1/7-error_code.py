@@ -6,9 +6,9 @@ from requests.exceptions import HTTPError
 
 if __name__ == "__main__":
     url = sys.argv[1]
-    try:
-        response = requests.get(url)
-        print(response.text)
+    response = requests.get(url)
 
-    except HTTPError as http_err:
-        print("Error code: {}".format(http_err.code))
+    if response.status_code >= 400:
+        print("Error code: {}".format(response.status_code))
+    else:
+        print(response.text)
