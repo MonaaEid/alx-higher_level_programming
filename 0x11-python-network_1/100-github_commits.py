@@ -15,3 +15,5 @@ if __name__ == "__main__":
     if response.status_code == 200:
         for data in response.json()[:10]:
             print(f" {data['sha']}: {data['commit']['author']['name']}")
+    else:
+        print('None')
