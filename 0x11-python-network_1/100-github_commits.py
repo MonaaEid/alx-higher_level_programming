@@ -16,4 +16,5 @@ if response.status_code == 200:
     data = response.json()
     for i in data[:10]:
         # Print the repository information
-        print("{}: {}",data["author"], data["name"] )
+        print("{}: {}".format(i.get('sha'),
+                              i.get('commit').get('author').get('name')))
