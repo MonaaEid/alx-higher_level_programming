@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" github"""
+""" github commits(sha, name)"""
 import requests
 import sys
 
