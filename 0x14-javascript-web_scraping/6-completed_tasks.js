@@ -6,7 +6,7 @@ const apiUrl = process.argv[2];
 request.get(apiUrl, (error, response, body) => {
   if (error) {
     console.error(error);
-  } else {
+  } else if (response.statusCode === 200) {
     const todos = JSON.parse(body);
     const completedTodos = todos.filter(todo => todo.completed);
     const completedTodosByUser = completedTodos.reduce((acc, todo) => {
@@ -20,5 +20,7 @@ request.get(apiUrl, (error, response, body) => {
     Object.entries(completedTodosByUser).forEach(([userId, numCompleted]) => {
       console.log(`User ${userId} has completed ${numCompleted} tasks.`);
     });
+  } else {
+    console.log('An error occured. Status code: ' + response.statusCode);
   }
 });
