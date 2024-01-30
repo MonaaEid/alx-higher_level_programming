@@ -11,7 +11,5 @@ request.get(apiUrl, (error, response, body) => {
     const films = JSON.parse(body).results;
     const numFilms = films.filter(film => film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)).length;
     console.log(numFilms);
-  } else {
-    console.log('An error occured. Status code: ' + response.statusCode);
   }
 });
