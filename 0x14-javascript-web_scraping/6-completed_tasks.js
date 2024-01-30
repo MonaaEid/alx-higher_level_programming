@@ -7,19 +7,19 @@ request.get(apiUrl, (error, response, body) => {
   if (error) {
     console.error(error);
   } else if (response.statusCode === 200) {
-    const todos = JSON.parse(body);
-    const completedTodos = todos.filter(todo => todo.completed);
-    const completedTodosByUser = completedTodos.reduce((acc, todo) => {
-      if (acc[todo.userId]) {
-        acc[todo.userId]++;
-      } else {
-        acc[todo.userId] = 1;
+    const completed = {};
+    const tasks = JSON.parse(body);
+    for (const i in tasks) {
+      const task = tasks[i];
+      if (task.completed === true) {
+        if (completed[task.userId] === undefined) {
+          completed[task.userId] = 1;
+        } else {
+          completed[task.userId]++;
+        }
       }
-      return acc;
-    }, {});
-    Object.entries(completedTodosByUser).forEach(([userId, numCompleted]) => {
-      console.log(`User ${userId} has completed ${numCompleted} tasks.`);
-    });
+    }
+    console.log(completed);
   } else {
     console.log('An error occured. Status code: ' + response.statusCode);
   }
